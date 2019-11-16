@@ -1,0 +1,51 @@
+<h1>Welcome</h1>
+
+<div>
+  <h2>ONE WAY DATA BINDING</h2>
+
+  <p>property binding [attributeName] & interpolation (curly braces)</p>
+  <h3 [title]="'hello'" [ngClass]="['bg-gray']">{{ title }}</h3>
+
+  <p>event binding</p>
+  <button *ngIf="isCounterLessThen5" (click)="onClickButton()">Click me!</button> Counter now is - {{ counter }}
+
+  <p>template reference #</p>
+  <input #nameInput> {{ nameInput.value }}
+
+  <p>two way data binding [()]</p>
+  <input [(ngModel)]="name" type="text" > {{ name }}
+</div>
+
+
+<div>
+  <h2>STRUCTURE DIRECTIVES</h2>
+
+  <p>ngIf</p>
+  <button *ngIf="isCounterLessThen5" (click)="onClickButton()">Click me!</button>
+
+  <p>ngSwitch</p>
+  <div [ngSwitch]="counter">
+    <span *ngSwitchCase="3">Two times more</span>
+    <span *ngSwitchCase="4">Once again</span>
+    <span *ngSwitchCase="5">Enough</span>
+    <span *ngSwitchDefault>Some times more</span>
+  </div>
+
+  <p>ngFor</p>
+  <table>
+    <thead>
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let person of persons; let index = index">
+      <td>{{ index + 1 }}</td>
+      <td>{{ person.name }}</td>
+      <td>{{ person.age }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,103 @@
+<form  #registerForm="ngForm" (ngSubmit)="sendForm(registerForm)">
+  <div>
+    <label for="name"  [ngStyle]="{color:nameU.touched && !nameU.valid ? 'red':'black'}"> Name: <br>
+      <input
+          #nameU="ngModel"
+          type="text"
+          name="name"
+          id="name"
+          [(ngModel)]="user.name"
+          required="required"
+      >
+    </label>
+  </div>
+
+  <div>
+    <label>Email: <br>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        [(ngModel)]="user.email"
+        email
+      >
+    </label>
+  </div>
+
+  <div>
+    <label>Password: <br>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        ngModel
+      >
+    </label>
+  </div>
+
+  <div>
+    <label>Confirm password: <br>
+      <input
+        type="password"
+        name="name"
+        id="confirmPassword"
+        ngModel
+      >
+    </label>
+  </div>
+
+  <div>
+    <label>Gender: <br>
+      Male
+      <input
+        type="radio"
+        name="gender"
+        value="male"
+        [(ngModel)]="user.gender"
+      >
+      Female
+      <input
+        type="radio"
+        name="gender"
+        value="Female"
+        [(ngModel)]="user.gender"
+      >
+    </label> <br>
+    <span>NODEJS</span>
+    <input
+      type="checkbox"
+      name="nodejs"
+      value="NodeJS"
+      [(ngModel)]="user.NodeJS"
+    >
+    <span>JAVASCRIPT</span>
+    <input
+      type="checkbox"
+      name="javascript"
+      value="JavaScript"
+      [(ngModel)]="user.JavaScript"
+    >
+    <span>ANGULAR</span>
+    <input
+      type="checkbox"
+      name="angular"
+      value="Angular"
+      [(ngModel)]="user.Angular"
+    >
+  </div>
+
+  <div>
+    <label>Position:
+      <select name="position" [(ngModel)]="user.position">
+        <option value="SENIOR" default >SENIOR</option>
+        <option value="MIDLE">MIDLE</option>
+        <option value="JUNIOR">JUNIOR</option>
+      </select>
+    </label>
+  </div>
+<div [ngStyle]="{display:'flex', justifyContent:'center'}" >
+  <button>Register</button>
+  <button>Clear Form</button>
+</div>
+
+</form>
