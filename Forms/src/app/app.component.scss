@@ -1,21 +1,32 @@
 *{
   box-sizing: border-box;
   margin: 0;
-  padding:  0.3rem;
+  padding:  0.2rem;
+
 }
+div {
+  margin-bottom: 0.2rem;
+}
+
 form {
-  transform: translate(-50,-50);
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
   border: 2px solid lightgray;
   max-width: 300px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: start;
   justify-content: space-between;
 }
 span {
   font-style: italic;
   font-size: small;
+}
+input,
+select,button{
+  cursor: pointer;
 }
 
 

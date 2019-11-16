@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {NgForm} from '@angular/forms';
 })
 export class AppComponent {
   title = 'Forms';
-
+  reactiveForm: FormGroup;
 
   user = {
     name: '',
@@ -18,11 +18,29 @@ export class AppComponent {
     JavaScript: '',
     Angular: '',
     position: ''
-  }
+  };
+  constructor(private formBuilder: FormBuilder) {
+    this.createForm();
 
-  ;
+  }
+  exeptionName = 'Pleace type your name';
+  exeptionEmail = 'Email example: example@domain.com';
 
   sendForm(registerForm: NgForm) {
     console.log(registerForm);
+  }
+
+
+  private createForm() {
+    this.reactiveForm = this.formBuilder.group(
+      {
+          name: '',
+          email: '',
+          gender: '',
+          NodeJS: '',
+          JavaScript: '',
+          Angular: '',
+          position: ''
+    });
   }
 }
