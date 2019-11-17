@@ -28,5 +28,11 @@ input,
 select,button{
   cursor: pointer;
 }
+div.ng-invalid {
+  input{
+    border: 2px solid red;
+
+  }
+}
 
 

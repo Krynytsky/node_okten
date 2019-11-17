@@ -1,68 +1,60 @@
-<form  #registerForm="ngForm" (ngSubmit)="sendForm(registerForm)" >
+<form  [formGroup]="reactiveForm" >
   <div>
     <label for="name"> Name: <br>
       <input
-          #nameU="ngModel"
           type="text"
-          name="name"
+          formControlName="name"
           id="name"
           required
       >
-      <p>{{exeptionName}}</p>
     </label>
   </div>
 
   <div>
-    <label [ngStyle]="{color:emailU.touched && !emailU.valid ? 'red':'black'}">Email: <br>
+    <label>Email: <br>
       <input
-        #emailU="ngModel"
         type="email"
-        name="email"
+        formControlName="email"
         id="email"
-        [(ngModel)]="user.email"
         email
       >
-      <p [ngStyle]="{display: emailU.touched && !emailU.valid ? 'block':'none'}" >{{exeptionEmail}}</p>
     </label>
   </div>
+  <div formGroupName="passwords">
+    <div>
+      <label>Password: <br>
+        <input
+          type="password"
+          formControlName="password"
+          id="password"
+        >
+      </label>
+    </div>
 
-  <div>
-    <label>Password: <br>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        ngModel
-      >
-    </label>
+    <div>
+      <label>Confirm password: <br>
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          id="confirmPassword"
+        >
+      </label>
+    </div>
+
   </div>
-
-  <div>
-    <label>Confirm password: <br>
-      <input
-        type="password"
-        name="name"
-        id="confirmPassword"
-        ngModel
-      >
-    </label>
-  </div>
-
   <div>
     <label>Gender: <br>
       Male
       <input
         type="radio"
-        name="gender"
+        formControlName="gender"
         value="male"
-        [(ngModel)]="user.gender"
       >
       Female
       <input
         type="radio"
-        name="gender"
+        formControlName="gender"
         value="Female"
-        [(ngModel)]="user.gender"
       >
     </label> <br>
   </div>
@@ -70,37 +62,40 @@
       <span>NODEJS</span>
       <input
         type="checkbox"
-        name="nodejs"
+        formControlName="nodejs"
         value="NodeJS"
-        [(ngModel)]="user.NodeJS"
       >
       <span>JAVASCRIPT</span>
       <input
         type="checkbox"
-        name="javascript"
+        formControlName="javaScript"
         value="JavaScript"
-        [(ngModel)]="user.JavaScript"
       >
       <span>ANGULAR</span>
       <input
         type="checkbox"
-        name="angular"
+        formControlName="angular"
         value="Angular"
-        [(ngModel)]="user.Angular"
       >
     </div>
   <div>
     <label>Position:
-      <select name="position" [(ngModel)]="user.position">
+      <select formControlName="position">
         <option value="SENIOR" >SENIOR</option>
         <option value="MIDLE">MIDLE</option>
         <option value="JUNIOR">JUNIOR</option>
       </select>
     </label>
   </div>
+  <div>
+    <label>How many children do you have?
+      <app-child-counter formControlName="childCounter"></app-child-counter>
+    </label>
+  </div>
 <div [ngStyle]="{display:'flex', justifyContent:'center'}" >
-  <button [disabled]="registerForm.invalid">Register</button>
-  <button >Clear Form</button>
+  <button (click)="register()">Register</button>
+  <button (click)="clearForm()">Clear Form</button>
+  <button (click)="setValue()">Set Value</button>
 </div>
 
 </form>

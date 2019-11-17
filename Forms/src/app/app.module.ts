@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { NgReactiveFormComponent } from './ng-reactive-form/ng-reactive-form.component';
+import { ChildCounterComponent, NewCompComponent } from './shared';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NgReactiveFormComponent
+    ChildCounterComponent,
+    NewCompComponent
   ],
   providers: [],
   imports: [
