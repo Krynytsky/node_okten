@@ -1,13 +1,15 @@
-<form  [formGroup]="reactiveForm" >
-  <div>
-    <label for="name"> Name: <br>
-      <input
-          type="text"
-          formControlName="name"
-          id="name"
-          required
-      >
+<form  [formGroup]="reactiveForm" class="container">
+
+  <div class="row">
+    <label class="col-sm-4" for="name"> Name:
     </label>
+    <input
+      type="text"
+      formControlName="name"
+      id="name"
+      required
+      class="col-sm-8 offset-sm-2"
+    >
   </div>
 
   <div>

@@ -44,7 +44,7 @@ export class AppComponent {
   }
 
   register() {
-    console.log(this.reactiveForm.value);
+    console.log(this.reactiveForm);
   }
   clearForm() {
     this.reactiveForm.reset();
@@ -66,6 +66,14 @@ export class AppComponent {
     });
   }
 }
+
+const validatorStatus = (formGroup): ValidationErrors =>{
+  const isValid: boolean = formGroup.get(formGroup).status;
+  if (isValid === false) {
+    return {invalidForm: true };
+  }
+  return null;
+};
 
 const eqalityValidator = (formGroup): ValidationErrors => {
   const passwordControlValue = formGroup.get('password').value;
